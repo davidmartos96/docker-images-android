@@ -8,15 +8,15 @@ docker_builder:
     - docker buildx inspect --bootstrap
   build_tools_script: |
     docker buildx build --platform linux/amd64,linux/arm64 \
-      --tag ghcr.io/cirruslabs/android-sdk:tools \
+      --tag ghcr.io/davidmartos96/android-sdk:tools \
       sdk/tools
   build_sdk_script: |
     docker buildx build --platform linux/amd64,linux/arm64 \
-      --tag ghcr.io/cirruslabs/android-sdk:35 \
+      --tag ghcr.io/davidmartos96/android-sdk:35 \
       sdk/35
   build_ndk_script: |
     docker buildx build --platform linux/amd64,linux/arm64 \
-      --tag ghcr.io/cirruslabs/android-sdk:35-ndk \
+      --tag ghcr.io/davidmartos96/android-sdk:35-ndk \
       sdk/35-ndk
 
 docker_builder:
@@ -26,22 +26,22 @@ docker_builder:
     GITHUB_TOKEN: ENCRYPTED[!82ed873afdf627284305afef4958c85a8f73127b09978a9786ac521559630ea6c9a5ab6e7f8315abf9ead09b6eff6eae!]
   version_script: docker --version
   login_script:
-    - echo $GITHUB_TOKEN | docker login ghcr.io -u fkorotkov --password-stdin
+    - echo $GITHUB_TOKEN | docker login ghcr.io -u davidmartos96 --password-stdin
   setup_script:
     - docker buildx create --name multibuilder
     - docker buildx use multibuilder
     - docker buildx inspect --bootstrap
   build_tools_script: |
     docker buildx build --platform linux/amd64,linux/arm64 --push \
-      --tag ghcr.io/cirruslabs/android-sdk:tools \
+      --tag ghcr.io/davidmartos96/android-sdk:tools \
       sdk/tools
   build_sdk_script: |
     docker buildx build --platform linux/amd64,linux/arm64 --push \
-      --tag ghcr.io/cirruslabs/android-sdk:35 \
+      --tag ghcr.io/davidmartos96/android-sdk:35 \
       sdk/35
   build_ndk_script: |
     docker buildx build --platform linux/amd64,linux/arm64 --push \
-      --tag ghcr.io/cirruslabs/android-sdk:35-ndk \
+      --tag ghcr.io/davidmartos96/android-sdk:35-ndk \
       sdk/35-ndk
 
 task:

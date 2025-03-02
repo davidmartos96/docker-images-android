@@ -1,4 +1,4 @@
-FROM ghcr.io/cirruslabs/android-sdk:tools
+FROM ghcr.io/davidmartos96/android-sdk:tools
 
 # https://developer.android.com/studio/releases/build-tools
 ENV ANDROID_PLATFORM_VERSION 35

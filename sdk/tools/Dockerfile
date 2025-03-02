@@ -1,6 +1,6 @@
 FROM ubuntu:24.04
 
-LABEL org.opencontainers.image.source=https://github.com/cirruslabs/docker-images-android
+LABEL org.opencontainers.image.source=https://github.com/davidmartos96/docker-images-android
 
 USER root
 
