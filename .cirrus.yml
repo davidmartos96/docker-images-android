@@ -1,6 +1,6 @@
 docker_builder:
   name: Build
-  only_if: $CIRRUS_BRANCH != $CIRRUS_DEFAULT_BRANCH
+  only_if: false
   version_script: docker --version
   setup_script:
     - docker buildx create --name multibuilder
@@ -21,7 +21,6 @@ docker_builder:
 
 docker_builder:
   name: Push
-  only_if: $CIRRUS_BRANCH == $CIRRUS_DEFAULT_BRANCH
   env:
     GITHUB_TOKEN: ENCRYPTED[!82ed873afdf627284305afef4958c85a8f73127b09978a9786ac521559630ea6c9a5ab6e7f8315abf9ead09b6eff6eae!]
   version_script: docker --version
