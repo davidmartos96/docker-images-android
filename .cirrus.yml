@@ -22,7 +22,7 @@ docker_builder:
 docker_builder:
   name: Push
   env:
-    GITHUB_TOKEN: ENCRYPTED[!82ed873afdf627284305afef4958c85a8f73127b09978a9786ac521559630ea6c9a5ab6e7f8315abf9ead09b6eff6eae!]
+    GITHUB_TOKEN: ENCRYPTED[d3bcb2a9b646b65409180d41b135ec9ccd5734d06d8e098c86103a008ef13064a12dff0c196b8255584c8b8bfb151770]
   version_script: docker --version
   login_script:
     - echo $GITHUB_TOKEN | docker login ghcr.io -u davidmartos96 --password-stdin
